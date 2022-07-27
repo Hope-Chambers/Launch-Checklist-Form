@@ -11,12 +11,20 @@ window.addEventListener("load", function(){
    let cargotStatus= document.getElementById("cargoStatus")
    
    form.addEventListener("submit", function(event){
-      event.preventdefault();
+      event.preventDefault();
 
-   let pilotInput=document.querySelector("input[name=pilotName)");   
+   let pilotInput=document.querySelector("input[name=pilotName]");   
    let copilotInput= document.querySelector("input[name=copilotName]");
    let fuelLevelInput= document.querySelector("input[name=fuelLevel]");
    let cargoMassInput= document.querySelector("input[name=cargoMadd]"); 
+
+   if(pilotInput.value==="" || copilotInput.value==="" ||fuelLevelInput.value===""|| cargoMassInput==="" ){
+      alert("Field empty please provide information.");
+   }else if(isNaN(pilotInput.value)|| isNaN(copilotInput.value)|| !isNaN(fuelLevelInput.value) || !isNaN(cargoMassInput.value)){
+      alert("Please enter correct format.")
+   }
+
+    
    });
 });
 
@@ -31,3 +39,16 @@ window.addEventListener("load", function(){
 </ul>
 <img src="${}">
 */
+//TODO 1: set up an window load handler(done)
+
+//TODO 2:  set up a submit handler for the form(done)
+
+//TODO 3: Cancel submission using event.preventDefault()(done)
+
+//TODO 4 validate that all inputs have data
+ 
+//TODO 5 check fuel level and cargo Mass, and report launch status 
+
+//TODO 6 make the list visible 
+
+//TODO 7 fetch planet data
