@@ -16,11 +16,11 @@ window.addEventListener("load", function(){
    let pilotInput=document.querySelector("input[name=pilotName]");   
    let copilotInput= document.querySelector("input[name=copilotName]");
    let fuelLevelInput= document.querySelector("input[name=fuelLevel]");
-   let cargoMassInput= document.querySelector("input[name=cargoMadd]"); 
+   let cargoMassInput= document.querySelector("input[name=cargoMass]"); 
 
    if(pilotInput.value==="" || copilotInput.value==="" ||fuelLevelInput.value===""|| cargoMassInput==="" ){
       alert("Field empty please provide information.");
-   }else if(isNaN(pilotInput.value)|| isNaN(copilotInput.value)|| !isNaN(fuelLevelInput.value) || !isNaN(cargoMassInput.value)){
+   }else if(isNaN(pilotInput.value)=== false || isNaN(copilotInput.value)=== false|| isNaN(fuelLevelInput.value)|| isNaN(cargoMassInput.value)){
       alert("Please enter correct format.")
    }
 
