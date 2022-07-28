@@ -1,5 +1,22 @@
-// Write your JavaScript code here!
 window.addEventListener("load", function(){
+
+  fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response){
+   response.json().then(function(json) {
+      const missionTarget= document.getElementById ("missionTarget")
+      missionTarget.innerHTML = 
+      `<h2>Mission Destination</h2>
+         <ul>
+         <li>Name: ${json[1].name}</li>
+          <li>Diameter: ${json[1].diameter}</li>
+          <li>Star: ${json[1].star}</li>
+          <li>Distance from Earth: ${json[1].distance}</li>
+         <li>Number of Moons: ${json[1].moons}</li>
+         </ul>
+         <img class avatar src="${json[1].image}"></img>`
+
+
+});
+
 
    let statusCheck = document.getElementById("launchStatusCheck");
    let form = document.getElementById("launchForm");
@@ -57,28 +74,4 @@ window.addEventListener("load", function(){
    }
 });
 });
-
-/* This block of code shows how to format the HTML once you fetch some planetary JSON!
-<h2>Mission Destination</h2>
-<ul>
-   <li>Name: ${}</li>
-   <li>Diameter: ${}</li>
-   <li>Star: ${}</li>
-   <li>Distance from Earth: ${}</li>
-   <li>Number of Moons: ${}</li>
-</ul>
-<img src="${}">
-*/
-//TODO 1: set up an window load handler(done)
-
-//TODO 2:  set up a submit handler for the form(done)
-
-//TODO 3: Cancel submission using event.preventDefault()(done)
-
-//TODO 4 validate that all inputs have data
- 
-//TODO 5 check fuel level and cargo Mass, and report launch status 
-
-//TODO 6 make the list visible 
-
-//TODO 7 fetch planet data
+});
