@@ -14,8 +14,7 @@ window.addEventListener("load", function(){
          </ul>
          <img class avatar src="${json[1].image}"></img>`
 
-
-});
+      });
 
 
    let statusCheck = document.getElementById("launchStatusCheck");
@@ -38,7 +37,7 @@ window.addEventListener("load", function(){
       let cargoMassInput= document.querySelector("input[name=cargoMass]");
       
 
-   if(pilotInput.value==="" || copilotInput.value==="" ||fuelLevelInput.value===""|| cargoMassInput==="" ){
+   if(pilotInput.value==="" || copilotInput.value==="" ||fuelLevelInput.value===""|| cargoMassInput.value===""){
       alert("Field empty please provide information.");
    }else if(isNaN(pilotInput.value)=== false || isNaN(copilotInput.value)=== false|| isNaN(fuelLevelInput.value)|| isNaN(cargoMassInput.value)){
       alert("Please enter correct format.")
@@ -46,32 +45,21 @@ window.addEventListener("load", function(){
       itemStatus.style.visibility="visible"
       pilotStatus.innerHTML=`Pilot: ${pilotName} is ready for Launch!`;
       copilotStatus.innerHTML=`Copilot: ${copilotName} is ready Launch!`;
-     
-      if(fuelLevelInput.value< 10000 && cargoMassInput.value >= 10000 ){   
-         launchStatus.style.color="red"
-         launchStatus.innerHTML=`Shuttle not ready for launch`;
-         fuelStatus.innerHTML=`Not enough fuel for the journey`;
-         cargoStatus.innerHTML=`too much mass for the shuttle to take off`;
-      
-      }else if(fuelLevelInput.value< 10000 && cargoMassInput.value <10000){
-         launchStatus.innerHTML=`Shuttle not ready for launch`;
-         fuelStatus.innerHTML=`Not enough fuel for the journey. `;
-         cargoStatus.innerHTML=`Cargo Mass Check Passesed.`;
-         launchStatus.style.color="red"
+      launchStatus.innerHTML=`Shuttle ready for launch`;
+      fuelStatus.innerHTML=`Passed Fuel Check`;
+      cargoStatus.innerHTML=`Cargo Mass Check Passed.`;
+      launchStatus.style.color="green"
+    }   
+   if(fuelLevelInput.value< 10000){   
+      launchStatus.innerHTML=`Shuttle not ready for launch`;
+      fuelStatus.innerHTML=`Not enough fuel for the journey`;
+      launchStatus.style.color="red"
 
-      }else if(cargoMassInput.value >= 10000 && fuelLevelInput.value >10000){
-         launchStatus.style.color="red"
+    }else if(cargoMassInput.value >10000){
          launchStatus.innerHTML=`Shuttle not ready for launch`;
-         fuelStatus.innerHTML=`Passed Fuel Check`;
          cargoStatus.innerHTML=`too much mass for the shuttle to take off.`;
-
-      }else if(fuelLevelInput.value>= 10000 && cargoMassInput.value <= 10000 ){   
-         launchStatus.style.color="green"
-         launchStatus.innerHTML=`Shuttle ready for launch`;
-         fuelStatus.innerHTML=`Passed Fuel Check`;
-         cargoStatus.innerHTML=`Cargo Mass Check Passesed.`;
-       }
-   }
+         launchStatus.style.color="red"
+    }    
 });
 });
 });
