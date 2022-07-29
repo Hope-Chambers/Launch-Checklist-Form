@@ -54,12 +54,14 @@ window.addEventListener("load", function(){
       launchStatus.innerHTML=`Shuttle not ready for launch`;
       fuelStatus.innerHTML=`Not enough fuel for the journey`;
       launchStatus.style.color="red"
-
-    }else if(cargoMassInput.value >10000){
+   }
+   
+   if(cargoMassInput.value >10000){
          launchStatus.innerHTML=`Shuttle not ready for launch`;
          cargoStatus.innerHTML=`too much mass for the shuttle to take off.`;
-         launchStatus.style.color="red"
-    }    
-});
+         launchStatus.style.color="red"  
+
+      };
+   });
 });
 });
